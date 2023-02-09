@@ -8,6 +8,8 @@ export const colors = {
   pink: "#FFDADC",
   greenBg: "#9EEDA1",
   green: "#25B82B",
+  yellow: "#FFC837",
+  yellowBg: "#FFEFBD",
 };
 
 export const usedFont = 'roboto'

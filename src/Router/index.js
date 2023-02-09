@@ -2,12 +2,16 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
-    Home,
-    Profile,
-    Chat,
-    Order,
-    MyStore,
-} from '../screen'
+  Home,
+  Profile,
+  Chat,
+  Order,
+  MyStore,
+  Product,
+  Etalase,
+  AddEtalase,
+  ProductInEtalase,
+} from "../screen";
 import {
   HomeOff,
   HomeOn,
@@ -128,6 +132,26 @@ const Router = ({navigation}) => {
         <Stack.Screen
           name="Activity1"
           component={MyStore}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Product"
+          component={Product}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Etalase"
+          component={Etalase}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AddEtalase"
+          component={AddEtalase}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ItemEtalase"
+          component={ProductInEtalase}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

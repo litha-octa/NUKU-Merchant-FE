@@ -24,8 +24,10 @@ import IconQuest from './iconquest.png'
 import IconSaldoRed from './IconSaldoRed.png'
 import Star from './star.png'
 import RightRedArrow from './rightRedArrow.png'
-
+import IconShare from './IconShare.png'
 import LeftArrowTail from './leftArrowTail.png'
+import IconAddProduct from './addProduct.png'
+import IconDefaultEtalase from './iconEtalase.png'
 
 import IconDompet from './iconActivity/dompet.png'
 import IconFaq from './iconActivity/faq.png'
@@ -36,6 +38,9 @@ import IconUlasan from "./iconActivity/ulasan.png";
 import Watermark from './iconActivity/Watermark.png'
 import RightGreyArrow from "./iconActivity/leftArrow.png";
 
+import IconSearch from './search.png';
+import BlankCamera from './blankCamera.png'
+import EmptyState from './emptyState.png'
 
 export {
   HomeOff,
@@ -70,4 +75,10 @@ export {
   IconUlasan,
   Watermark,
   RightGreyArrow,
+  IconShare,
+  IconSearch,
+  IconAddProduct,
+  IconDefaultEtalase,
+  BlankCamera,
+  EmptyState,
 };

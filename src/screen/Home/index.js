@@ -11,7 +11,7 @@ import {
   IconStatusPenjualan,
 } from "../../assets/img";
 
-const Home =()=>{
+const Home =({navigation})=>{
 const merchant = {
   name: "Toko Sembako Jaya",
   img :'https://tse2.mm.bing.net/th?id=OIP.BHDBlhTGI2-TaHhW4enWoAHaFE&pid=Api&P=0',
@@ -25,15 +25,25 @@ const merchant = {
           name={merchant?.name}
           img={{ uri: merchant?.img }}
           rate={merchant?.rate}
-          onNotif={()=>{console.log('Notif Clicked !')}}
+          onNotif={() => {
+            console.log("Notif Clicked !");
+          }}
         />
         <View>
           <ScrollView>
             <View style={s.body}>
               <SaldoInfo saldo={merchant?.saldo} />
               <View style={s.cardContainer}>
-                <CardMenu img={IconProduk} menuName="Produk Kamu" />
-                <CardMenu img={IconEtalase} menuName="Etalase" />
+                <CardMenu
+                  img={IconProduk}
+                  menuName="Produk Kamu"
+                  onPress={() => navigation.navigate("Product")}
+                />
+                <CardMenu
+                  img={IconEtalase}
+                  menuName="Etalase"
+                  onPress={() => navigation.navigate("Etalase")}
+                />
                 <CardMenu
                   img={IconStatusPenjualan}
                   menuName="Status Penjualan"
@@ -47,7 +57,12 @@ const merchant = {
                 <Insight width="48%" title="produk terlihat" value="326" />
               </View>
               <View style={s.insightContainer}>
-                <Insight width="100%" title="total penjualan" value="Rp. 11.463.287" green />
+                <Insight
+                  width="100%"
+                  title="total penjualan"
+                  value="Rp. 11.463.287"
+                  green
+                />
               </View>
               <View style={s.insightContainer}>
                 <Insight width="48%" title="jumlah produk" value="50" />
