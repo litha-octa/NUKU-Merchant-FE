@@ -8,6 +8,7 @@ import OrderCard from "./OrderCard";
 import CardProduct from "./CardProduct";
 import FloatingBtn from "./FloatingBtn";
 import BlankContainer from "./BlankContainer";
+import AssistantModal from './AssistantModal'
 
 export {
     SaldoInfo,
@@ -20,4 +21,5 @@ export {
     CardProduct,
     FloatingBtn,
     BlankContainer,
+    AssistantModal,
 }

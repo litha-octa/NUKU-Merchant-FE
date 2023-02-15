@@ -41,6 +41,10 @@ import RightGreyArrow from "./iconActivity/leftArrow.png";
 import IconSearch from './search.png';
 import BlankCamera from './blankCamera.png'
 import EmptyState from './emptyState.png'
+import IconLatePayment from './IconLatepayment.png'
+import IconDelete from './delet.png'
+import IconFilterOrder from './filterOrder.png'
+import AssistantImg from './assistantBig.png'
 
 export {
   HomeOff,
@@ -81,4 +85,8 @@ export {
   IconDefaultEtalase,
   BlankCamera,
   EmptyState,
+  IconLatePayment,
+  IconDelete,
+  IconFilterOrder,
+  AssistantImg,
 };

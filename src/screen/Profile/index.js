@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet, Switch,Image, ScrollView} from  'react-native'
-import {SimpleHeader, HeaderHome, ActivityItem} from '../../component'
+import {SimpleHeader, HeaderHome, ActivityItem, AssistantModal} from '../../component'
 import {colors, usedFont} from '../../assets/colors'
 import {
   IconDompet,
@@ -81,6 +81,9 @@ const Profile = ({navigation}) =>{
                 <Text style={s.greyContTitle}>{merchant?.operational}</Text>
                 <Text style={s.greyContDesc}>Jam Operasional</Text>
               </View>
+            </View>
+            <View style={{marginHorizontal:'3%'}}>
+              <AssistantModal title="Aktifitas Saya" />
             </View>
             <ActivityItem
               icon={IconToko}

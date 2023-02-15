@@ -3,6 +3,7 @@ package com.merchant;
 import android.os.Build;
 import android.os.Bundle;
 
+// import com.sun.xml.bind.v2.runtime;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;

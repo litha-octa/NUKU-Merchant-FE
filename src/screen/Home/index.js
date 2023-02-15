@@ -1,6 +1,6 @@
 import React from "react"; 
 import {View, Text,Image,TouchableOpacity, StyleSheet, SafeAreaView, ScrollView, StatusBar} from 'react-native'
-import {SaldoInfo, HeaderHome, CardMenu, Insight} from '../../component'
+import {SaldoInfo, HeaderHome, CardMenu, Insight, AssistantModal} from '../../component'
 import { colors, usedFont } from "../../assets/colors";
 import {
   IconCallCenter,
@@ -33,6 +33,7 @@ const merchant = {
           <ScrollView>
             <View style={s.body}>
               <SaldoInfo saldo={merchant?.saldo} />
+              <AssistantModal title={"Dashboard Kamu"} />
               <View style={s.cardContainer}>
                 <CardMenu
                   img={IconProduk}
@@ -52,10 +53,12 @@ const merchant = {
                 <CardMenu img={IconIklan} menuName="Iklan & Promosi" />
                 <CardMenu img={IconCallCenter} menuName="Call Center" />
               </View>
+              <AssistantModal title={"Insight Toko"} />
               <View style={s.insightContainer}>
                 <Insight width="48%" title="kunjungi toko" value="1,2 Rb" />
                 <Insight width="48%" title="produk terlihat" value="326" />
               </View>
+              <AssistantModal title={"Total Pendapatan"} />
               <View style={s.insightContainer}>
                 <Insight
                   width="100%"
@@ -64,6 +67,7 @@ const merchant = {
                   green
                 />
               </View>
+              <AssistantModal title={"Insight Toko"} />
               <View style={s.insightContainer}>
                 <Insight width="48%" title="jumlah produk" value="50" />
                 <Insight width="48%" title="produk terjual" value="250" />
