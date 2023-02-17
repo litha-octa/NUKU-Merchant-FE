@@ -38,6 +38,13 @@ import IconUlasan from "./iconActivity/ulasan.png";
 import Watermark from './iconActivity/Watermark.png'
 import RightGreyArrow from "./iconActivity/leftArrow.png";
 
+import IconBtnDom1 from './saldo/btndom1.png'
+import IconBtnDom2 from './saldo/btndom2.png'
+import IconBtnDom3 from './saldo/btndom3.png'
+import IconBtnDom4 from "./saldo/btndom4.png";
+
+import IconPoin from './iconPoin.png';
+import IconDate from './icondate.png'
 import IconSearch from './search.png';
 import BlankCamera from './blankCamera.png'
 import EmptyState from './emptyState.png'
@@ -45,6 +52,7 @@ import IconLatePayment from './IconLatepayment.png'
 import IconDelete from './delet.png'
 import IconFilterOrder from './filterOrder.png'
 import AssistantImg from './assistantBig.png'
+import IconMoney from './money.png'
 
 export {
   HomeOff,
@@ -89,4 +97,11 @@ export {
   IconDelete,
   IconFilterOrder,
   AssistantImg,
+  IconBtnDom1,
+  IconBtnDom2,
+  IconBtnDom3,
+  IconBtnDom4,
+  IconDate,
+  IconPoin,
+  IconMoney,
 };

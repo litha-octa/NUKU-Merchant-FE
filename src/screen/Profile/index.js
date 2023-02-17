@@ -93,7 +93,7 @@ const Profile = ({navigation}) =>{
             <ActivityItem
               icon={IconDompet}
               title="Dompet"
-              onPress={() => console.log("dompet")}
+              onPress={() => navigation.navigate("Activity2")}
             />
             <ActivityItem
               icon={IconModal}

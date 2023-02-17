@@ -5,7 +5,7 @@ import Order from "./Order";
 import {Product, Etalase, AddEtalase, ProductInEtalase} from "./Menu"
 
 // ACTIVITY IN PROFILE MERCHANT
-import MyStore from "./Profile/Activity/MyStore";
+import {MyStore, Dompet, TarikTunai} from "./Profile/Activity";
 
 export {
   Home,
@@ -17,4 +17,6 @@ export {
   Etalase,
   AddEtalase,
   ProductInEtalase,
+  Dompet,
+  TarikTunai,
 };

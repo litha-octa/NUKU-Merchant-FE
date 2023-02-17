@@ -11,6 +11,8 @@ import {
   Etalase,
   AddEtalase,
   ProductInEtalase,
+  Dompet,
+  TarikTunai,
 } from "../screen";
 import {
   HomeOff,
@@ -132,6 +134,16 @@ const Router = ({navigation}) => {
         <Stack.Screen
           name="Activity1"
           component={MyStore}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Activity2"
+          component={Dompet}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TarikTunai"
+          component={TarikTunai}
           options={{ headerShown: false }}
         />
         <Stack.Screen
