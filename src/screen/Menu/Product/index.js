@@ -5,7 +5,7 @@ import { IconSearch, IconAddProduct } from "../../../assets/img";
 import { colors, usedFont } from "../../../assets/colors";
 import {product} from './dummy'
 
-const Product = ({navigation}) =>{
+const Product = ({navigation, route}) =>{
     // const product = {
     //   name: "Kue JAhe",
     //   stock: 30,
@@ -43,13 +43,18 @@ const Product = ({navigation}) =>{
             {product?.map((item, index) => {
               return (
                 <CardProduct
-                key={item.name}
+                  key={item.name}
                   name={item.name}
                   stock={item.stock}
                   price={item.price}
                   img={{ uri: item.img }}
+                  onPress={() => {
+                    navigation.navigate("DetailProduct", {
+                      data: product[index],
+                    });
+                  }}
                   onEdit={() => {
-                    console.log("edit");
+                    console.log('edit')
                   }}
                   onDelete={() => {
                     console.log("delete");

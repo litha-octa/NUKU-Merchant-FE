@@ -1,7 +1,11 @@
 import Product from "./Product";
+import DetailProduct from "./Product/DetailProduct";
+import AddProduct from "./Product/AddProduct";
 
 import Etalase from './Etalase'
 import AddEtalase from "./Etalase/AddEtalase";
 import ProductInEtalase from "./Etalase/ProductInEtalase";
 
-export { Product, Etalase, AddEtalase, ProductInEtalase,};
+import Iklan from './Iklan'
+
+export { AddProduct, Product, Etalase, AddEtalase, ProductInEtalase,Iklan, DetailProduct,};

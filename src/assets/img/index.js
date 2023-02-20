@@ -53,6 +53,15 @@ import IconDelete from './delet.png'
 import IconFilterOrder from './filterOrder.png'
 import AssistantImg from './assistantBig.png'
 import IconMoney from './money.png'
+import DefaultChatPic from './defaultChatPic.png'
+import IconRedShare from './redShare.png'
+import RedPlus from './Plus.png'
+
+//Layana Chat
+import BtnNotif from './layananChat/btnNotif.png';
+import BtnHelp from "./layananChat/btnHelp.png";
+import BtnSettingChat from './layananChat/btnSettChat.png';
+
 
 export {
   HomeOff,
@@ -104,4 +113,10 @@ export {
   IconDate,
   IconPoin,
   IconMoney,
+  BtnHelp,
+  BtnNotif,
+  BtnSettingChat,
+  DefaultChatPic,
+  IconRedShare,
+  RedPlus,
 };

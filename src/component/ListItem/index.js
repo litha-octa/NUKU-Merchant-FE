@@ -1,12 +1,13 @@
 import React from "react";
-import {View, Text, Image} from 'react-native'
+import {View, Text, Image, TouchableOpacity} from 'react-native'
 import { usedFont } from "../../assets/colors";
 import { RightGreyArrow } from "../../assets/img";
 import { colors } from "../../assets/colors";
 
 const ListItem = (props) =>{
     return (
-      <View
+      <TouchableOpacity
+      onPress={props.onPress}
         style={{
           display: "flex",
           flexDirection: "row",
@@ -37,7 +38,7 @@ const ListItem = (props) =>{
         <View style={{ width: "10%" }}>
           <Image source={RightGreyArrow} style={{ width: 40, height: 40 }} />
         </View>
-      </View>
+      </TouchableOpacity>
     );
 }
 export default ListItem

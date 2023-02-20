@@ -26,7 +26,7 @@ const CardProduct = (props) =>{
           marginVertical:10,
         }}
       >
-        <View style={s.row}>
+        <TouchableOpacity style={s.row} onPress={props.onPress}>
           <View style={{ width: "15%" }}>
             <Image
               source={props.img}
@@ -46,7 +46,7 @@ const CardProduct = (props) =>{
             <Text style={s.greyText}>Harga Product</Text>
             <Text style={s.boldText}>{props.price}</Text>
           </View>
-        </View>
+        </TouchableOpacity>
         <View style={[s.row,{justifyContent:'space-around', marginTop:10,}]}>
           <TouchableOpacity
             style={{

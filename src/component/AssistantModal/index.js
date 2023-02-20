@@ -22,8 +22,8 @@ const AssitantModal = (props) =>{
           <Image
             source={IconQuest}
             style={{
-              width: 35,
-              height: 35,
+              width: 25,
+              height: 25,
               marginRight: 15,
             }}
           />

@@ -50,7 +50,7 @@ const merchant = {
                   menuName="Status Penjualan"
                 />
                 <CardMenu img={IconStatistik} menuName="Statistik Toko" />
-                <CardMenu img={IconIklan} menuName="Iklan & Promosi" />
+                <CardMenu img={IconIklan} menuName="Iklan & Promosi" onPress={()=>navigation.navigate('Iklan')} />
                 <CardMenu img={IconCallCenter} menuName="Call Center" />
               </View>
               <AssistantModal title={"Insight Toko"} />
