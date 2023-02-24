@@ -10,10 +10,19 @@ import {
   ProductInEtalase,
   Iklan,
   DetailProduct,
+  Statistik,
 } from "./Menu";
 
 // ACTIVITY IN PROFILE MERCHANT
-import {MyStore, Dompet, TarikTunai} from "./Profile/Activity";
+import {
+  MyStore,
+  Dompet,
+  TarikTunai,
+  Setting,
+  OperationalTime,
+  DeliveryService,
+  CloseAccount,
+} from "./Profile/Activity";
 
 export {
   Home,
@@ -30,4 +39,9 @@ export {
   Iklan,
   DetailProduct,
   AddProduct,
+  Setting,
+  OperationalTime,
+  DeliveryService,
+  CloseAccount,
+  Statistik,
 };

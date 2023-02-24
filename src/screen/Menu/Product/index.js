@@ -1,22 +1,28 @@
-import React from "react";
-import {View,Text, ScrollView, Image, TextInput, StyleSheet, Touchable, TouchableOpacity} from 'react-native'
-import {CardProduct, SimpleHeader, FloatingBtn} from '../../../component'
+import React, { useState } from "react";
+import {View,Text, ScrollView, Image, TextInput, StyleSheet, Modal, StatusBar,TouchableOpacity} from 'react-native'
+import {CardProduct, SimpleHeader, FloatingBtn, AssistantModal} from '../../../component'
 import { IconSearch, IconAddProduct } from "../../../assets/img";
 import { colors, usedFont } from "../../../assets/colors";
 import {product} from './dummy'
 
 const Product = ({navigation, route}) =>{
-    // const product = {
-    //   name: "Kue JAhe",
-    //   stock: 30,
-    //   price: "30.000",
-    //   img: "https://tse1.mm.bing.net/th?id=OIP.4nsVrIl5v8YliIk-RwPvGgHaE7&pid=Api&P=0",
-    // };
+    const [visible,setVisible] = useState(false)
+    
+
+
     return (
       <View style={s.body}>
         <SimpleHeader
           onBack={() => navigation.goBack()}
           title="Daftar Product kamu"
+        />
+        <AssistantModal 
+        visible={visible} 
+        sadFace 
+        desc ='Apakah kamu yakn ingin menghapus produk ini ?' 
+        confirm='Hapus'
+        onClose={()=>setVisible(!visible)}
+        onCancel={()=>setVisible(!visible)}
         />
         <View
           style={{
@@ -54,10 +60,10 @@ const Product = ({navigation, route}) =>{
                     });
                   }}
                   onEdit={() => {
-                    console.log('edit')
+                    navigation.navigate("AddProduct", { uuid: item.name });
                   }}
                   onDelete={() => {
-                    console.log("delete");
+                    setVisible(!visible)
                   }}
                   onShare={() => {
                     console.log("share");
@@ -68,7 +74,14 @@ const Product = ({navigation, route}) =>{
             <View style={{ height: 250 }}></View>
           </ScrollView>
         </View>
-       <FloatingBtn title='Tambah Produk' onPress={()=>console.log('clicked !')}/>
+        <FloatingBtn
+          title="Tambah Produk"
+          onPress={() => {
+            navigation.navigate("AddProduct", {
+              uuid: null,
+            });
+          }}
+        />
       </View>
     );
 }

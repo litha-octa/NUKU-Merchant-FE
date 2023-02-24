@@ -19,14 +19,14 @@ const ActivityItem = (props) => {
           paddingHorizontal:'3%',
         }}
       >
-        <Image source={props.icon} style={{ width: 40, height: 40 }} />
+        <Image source={props.icon} style={props.icon?{ width: 40, height: 40 }:{display:'none'}} />
         <Text
           style={{
             textAlignVertical: "center",
             fontSize: 17,
             fontWeight: "bold",
-            width: "80%",
-            paddingHorizontal: "5%",
+            width: props.icon ?"80%":'95%',
+            paddingHorizontal: "2%",
             color: colors.midGrey,
           }}
         >

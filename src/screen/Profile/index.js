@@ -82,7 +82,7 @@ const Profile = ({navigation}) =>{
                 <Text style={s.greyContDesc}>Jam Operasional</Text>
               </View>
             </View>
-            <View style={{marginHorizontal:'3%'}}>
+            <View style={{ marginHorizontal: "3%" }}>
               <AssistantModal title="Aktifitas Saya" />
             </View>
             <ActivityItem
@@ -108,7 +108,7 @@ const Profile = ({navigation}) =>{
             <ActivityItem
               icon={IconSetting}
               title="Pengaturan"
-              onPress={() => console.log("pengaturan")}
+              onPress={() => navigation.navigate("Activity5")}
             />
             <ActivityItem
               icon={IconFaq}

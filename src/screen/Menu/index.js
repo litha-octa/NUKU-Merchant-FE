@@ -8,4 +8,6 @@ import ProductInEtalase from "./Etalase/ProductInEtalase";
 
 import Iklan from './Iklan'
 
-export { AddProduct, Product, Etalase, AddEtalase, ProductInEtalase,Iklan, DetailProduct,};
+import Statistik from "./Statistik";
+
+export { AddProduct, Product, Etalase, AddEtalase, ProductInEtalase,Iklan, DetailProduct,Statistik};

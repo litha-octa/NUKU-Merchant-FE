@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {View,Text,TouchableOpacity, Modal, Image, StyleSheet, StatusBar} from 'react-native'
 import { colors, usedFont } from '../../assets/colors'
-import { IconQuest, AssistantImg } from "../../assets/img";
+import { IconQuest, AssistantImg, AssistantSad } from "../../assets/img";
 
 const AssitantModal = (props) =>{
     const [visible,setVisible] = useState(false)
@@ -9,12 +9,17 @@ const AssitantModal = (props) =>{
     const textDumm =
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
     return (
-      <View style={s.body}>
+      <View style={props.title ? s.body : null}>
         <StatusBar
-        barStyle={'dark-content'}
-        backgroundColor={visible === true? "rgba(32, 32, 32, 0.6)" : 'white' }
+          barStyle={"dark-content"}
+          backgroundColor={
+            props.visible === true || visible === true
+              ? "rgba(32, 32, 32, 0.6)"
+              : "white"
+          }
         />
         <TouchableOpacity
+          style={props.title ? null : { display: "none" }}
           onPress={() => {
             setVisible(!visible);
           }}
@@ -40,12 +45,16 @@ const AssitantModal = (props) =>{
         >
           {props.title}
         </Text>
-        <Modal animationType="slide" transparent={true} visible={visible}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={props.visible ? props.visible : visible}
+        >
           <View
             style={{
               backgroundColor: "rgba(32, 32, 32, 0.6)",
-              width :'100%',
-              height:'100%',
+              width: "100%",
+              height: "100%",
             }}
           >
             <View style={s.bodyModal}>
@@ -62,9 +71,9 @@ const AssitantModal = (props) =>{
                   Info Untuk Kamu
                 </Text>
                 <TouchableOpacity
-                  onPress={() => {
-                    setVisible(!visible);
-                  }}
+                  onPress={
+                    props.onClose ? props.onClose : () => setVisible(!visible)
+                  }
                 >
                   <Text
                     style={{
@@ -79,7 +88,7 @@ const AssitantModal = (props) =>{
                 </TouchableOpacity>
               </View>
               <Image
-                source={AssistantImg}
+                source={props.sadFace ? AssistantSad : AssistantImg}
                 style={{
                   width: 150,
                   height: 130,
@@ -95,6 +104,27 @@ const AssitantModal = (props) =>{
               >
                 {props.desc ? props.desc : textDumm}
               </Text>
+              <View
+                style={
+                  props.confirm
+                    ? {
+                        display: "flex",
+                        flexDirection: "row",
+                        width: "100%",
+                        justifyContent: "space-around",
+                      }
+                    : { display: "none" }
+                }
+              >
+                <TouchableOpacity style={s.btnConfirm} onPress={props.onCancel}>
+                  <Text style={s.textBtnConfirm}>Batal</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={s.btnConfirm} onPress={props.onConfirm}>
+                  <Text style={s.textBtnConfirm}>
+                    {props.confirm ? props.confirm : "Ok !"}
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </Modal>
@@ -126,4 +156,18 @@ const s = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
+  btnConfirm:{
+    width:'40%',
+    borderRadius:15,
+    padding :10,
+    marginVertical:10,
+    backgroundColor:'pink',
+  },
+  textBtnConfirm:{
+    textAlign:'center',
+    fontFamily:usedFont,
+    fontSize:16,
+    fontWeight:'bold',
+    color:colors.main,
+  }
 });

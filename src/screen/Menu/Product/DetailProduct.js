@@ -118,7 +118,7 @@ const DetailProduct = ({navigation, route}) => {
               width: "45%",
               padding: 10,
             }}
-            onPress={()=>navigation.navigate('AddProduct')}
+            onPress={()=>navigation.navigate('AddProduct',{uuid:data.name})}
           >
             <Text
               style={{

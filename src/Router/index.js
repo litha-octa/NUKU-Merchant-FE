@@ -16,6 +16,11 @@ import {
   Iklan,
   DetailProduct,
   AddProduct,
+  Setting,
+  OperationalTime,
+  DeliveryService,
+  CloseAccount,
+  Statistik,
 } from "../screen";
 import {
   HomeOff,
@@ -145,8 +150,33 @@ const Router = ({navigation}) => {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Activity5"
+          component={Setting}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Setting1"
+          component={OperationalTime}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Setting2"
+          component={DeliveryService}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Setting3"
+          component={CloseAccount}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="TarikTunai"
           component={TarikTunai}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Statistik"
+          component={Statistik}
           options={{ headerShown: false }}
         />
         <Stack.Screen

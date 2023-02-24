@@ -49,7 +49,7 @@ const merchant = {
                   img={IconStatusPenjualan}
                   menuName="Status Penjualan"
                 />
-                <CardMenu img={IconStatistik} menuName="Statistik Toko" />
+                <CardMenu img={IconStatistik} menuName="Statistik Toko" onPress={()=>navigation.navigate('Statistik')}/>
                 <CardMenu img={IconIklan} menuName="Iklan & Promosi" onPress={()=>navigation.navigate('Iklan')} />
                 <CardMenu img={IconCallCenter} menuName="Call Center" />
               </View>

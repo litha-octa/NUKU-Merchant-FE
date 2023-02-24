@@ -56,11 +56,21 @@ import IconMoney from './money.png'
 import DefaultChatPic from './defaultChatPic.png'
 import IconRedShare from './redShare.png'
 import RedPlus from './Plus.png'
+import AssistantSad from './AssistantSedih.png'
+import MapBanner from './Map.png'
+import IconEdit from './edit.png'
+
 
 //Layana Chat
 import BtnNotif from './layananChat/btnNotif.png';
 import BtnHelp from "./layananChat/btnHelp.png";
 import BtnSettingChat from './layananChat/btnSettChat.png';
+
+import IconVoucher from "./promosiPage/iconVoucher.png";
+import IconAds from "./promosiPage/iconAds.png";
+import IconBroadcast from "./promosiPage/iconBroadcast.png";
+import IconSosmed from "./promosiPage/iconSomed.png";
+import backgroundGradient from "./promosiPage/bgGradient.png";
 
 
 export {
@@ -119,4 +129,12 @@ export {
   DefaultChatPic,
   IconRedShare,
   RedPlus,
+  AssistantSad,
+  MapBanner,
+  IconEdit,
+  IconAds,
+  IconBroadcast,
+  IconSosmed,
+  IconVoucher,
+  backgroundGradient,
 };
