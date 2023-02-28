@@ -2,6 +2,8 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
+  Splash,
+  Login,
   Home,
   Profile,
   Chat,
@@ -21,6 +23,7 @@ import {
   DeliveryService,
   CloseAccount,
   Statistik,
+  RegisterMerchant,
 } from "../screen";
 import {
   HomeOff,
@@ -44,6 +47,9 @@ const MainApp = ({ navigation }) => {
     <Tab.Navigator
       initialRouteName={MainApp}
       screenOptions={({ route }) => ({
+        tabBarOptions: {
+          showLabel: false,
+        },
         tabBarStyle: {
           height: 70,
         },
@@ -52,8 +58,8 @@ const MainApp = ({ navigation }) => {
           let labelName;
           let labelStyle;
           if (route.name === "Home") {
-            iconName = focused ? HomeOn : HomeOff;
             labelName = "Beranda";
+            iconName = focused ? HomeOn : HomeOff;
             labelStyle = focused
               ? { color: colors.main, alignText: "center" }
               : { color: colors.grey, alignText: "center" };
@@ -89,7 +95,7 @@ const MainApp = ({ navigation }) => {
                   style={
                     iconName === MainLogo
                       ? { width: 70, height: 70, marginBottom: 55 }
-                       : {
+                      : {
                           width: 30,
                           height: 30,
                           marginVertical: 5,
@@ -103,29 +109,26 @@ const MainApp = ({ navigation }) => {
           );
         },
       })}
-      tabBarOptions={{
-        showLabel: false,
-      }}
     >
       <Tab.Screen
         name="Home"
         component={Home}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
       <Tab.Screen
         name="Order"
         component={Order}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
       <Tab.Screen
         name="Chat"
         component={Chat}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{ headerShown: false }}
+        options={{ headerShown: false, tabBarShowLabel: false }}
       />
     </Tab.Navigator>
   );
@@ -134,6 +137,16 @@ const MainApp = ({ navigation }) => {
 const Router = ({navigation}) => {
     return (
       <Stack.Navigator initialRouteName="Splash">
+        <Stack.Screen
+          name="Splash"
+          component={Splash}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="MainApp"
           component={MainApp}
@@ -212,6 +225,11 @@ const Router = ({navigation}) => {
         <Stack.Screen
           name="ItemEtalase"
           component={ProductInEtalase}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CreateMerchant"
+          component={RegisterMerchant}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

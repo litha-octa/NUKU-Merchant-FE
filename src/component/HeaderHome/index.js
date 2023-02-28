@@ -24,7 +24,7 @@ const HeaderHome = (props) =>{
         <View style={{ width: "15%" }}>
           <Image
             source={props.img}
-            style={{ width: "100%", height: 60, borderRadius: 35 }}
+            style={{ width: 60, height: 60,resizeMode:'contain', borderRadius: 35 }}
           />
         </View>
         <View

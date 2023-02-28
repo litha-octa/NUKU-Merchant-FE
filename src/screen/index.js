@@ -1,7 +1,12 @@
+import Splash from "./Splash";
+import Login from './Auth/Login'
+
 import Home from "./Home";
 import Profile from "./Profile";
 import Chat from "./Chat";
 import Order from "./Order";
+
+import RegisterMerchant from "./RegisterMerchant";
 import {
   Product,
   AddProduct,
@@ -25,6 +30,8 @@ import {
 } from "./Profile/Activity";
 
 export {
+  Splash,
+  Login,
   Home,
   Profile,
   Chat,
@@ -44,4 +51,5 @@ export {
   DeliveryService,
   CloseAccount,
   Statistik,
+  RegisterMerchant,
 };

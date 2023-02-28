@@ -1,26 +1,56 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {View, Text, StyleSheet, Image,TextInput, TouchableOpacity, ScrollView} from 'react-native'
 import {SimpleHeader, FloatingBtn, BlankContainer} from '../../../component'
 import {colors, usedFont} from '../../../assets/colors'
 import { IconDefaultEtalase, IconSearch } from "../../../assets/img";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { BASE_URL, URL } from "../../../service";
+import { useIsFocused} from "@react-navigation/native";
 
 const Etalase = ({navigation}) =>{
+  const [list,setList] = useState(null)
+  const [token, setToken] = useState();
 
-  // const [list,setList] = useState(null)
-const list = [
-  {
-    id: 1,
-    name: "Makanan",
-  },
-  {
-    id: 2,
-    name: "Minuman",
-  },
-  {
-    id: 3,
-    name: "Pakaian Wanita",
-  },
-];
+  const isFocused = useIsFocused
+
+  const getToken = async () => {
+    try {
+      const value = await AsyncStorage.getItem("token");
+      if (value !== null) {
+        console.log(value)
+        listEtalase(value)
+        setToken(value)
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+
+  const listEtalase = (token) => {
+    axios.get(
+      `${BASE_URL}${URL.listEtalase}?search=&page=1&size=20&sortBy=&sortDir=&is_active=`,
+      {
+        headers:{
+          Authorization:`Bearer ${token}`,
+        },
+      }
+    )
+    .then((res)=>{
+      console.log(res.data.data)
+      setList(res.data.data)
+    }  
+      )
+    .catch((err)=>{console.log(err)})
+  }
+
+  useEffect(()=>{
+    getToken()
+    if(isFocused){
+    listEtalase(token)
+    }
+  },[navigation, isFocused])
 
 const ItemList =(props)=>{
     return (
@@ -55,6 +85,7 @@ const ItemList =(props)=>{
               fontSize: 17,
               fontWeight: "bold",
               marginTop:10,
+              textTransform:'capitalize',
             }}
           >
             {props.name}
@@ -95,7 +126,7 @@ const ItemList =(props)=>{
             {list !== null? list.map((item)=>{
               return (
                 <ItemList
-                key={item.id}
+                key={item.uuid}
                   name={item.name}
                   onPress={() => {
                     navigation.navigate("ItemEtalase", {

@@ -8,6 +8,8 @@ import ProfileOn from "./iconBottomTab/profileOn.png";
 import ProfileOff from "./iconBottomTab/profileOff.png";
 import MainLogo from "./iconBottomTab/mainLogo.png";
 
+import LogoSplash from './Logo.png'
+
 import IconTopUp from './infoSaldo/topup.png'
 import IconTopUpRiwayat from './infoSaldo/riwayat.png'
 import IconTopUpLainnya from "./infoSaldo/lainnya.png";
@@ -73,7 +75,19 @@ import IconSosmed from "./promosiPage/iconSomed.png";
 import backgroundGradient from "./promosiPage/bgGradient.png";
 
 
+import LogoAuth from './logoAuth.png'
+import ShowOff from './showOff.png'
+import ShowOn from './showOn.png'
+
+import ByEmailIcon from './loginBy/email.png'
+import ByFBIcon from './loginBy/fb.png'
+import ByGoogleIcon from './loginBy/google.png'
+import ByPhoneIcon from "./loginBy/nohp.png";
+
 export {
+  LogoAuth,
+  ShowOff,
+  ShowOn,
   HomeOff,
   HomeOn,
   ChatOff,
@@ -137,4 +151,9 @@ export {
   IconSosmed,
   IconVoucher,
   backgroundGradient,
+  LogoSplash,
+  ByEmailIcon,
+  ByFBIcon,
+  ByGoogleIcon,
+  ByPhoneIcon
 };

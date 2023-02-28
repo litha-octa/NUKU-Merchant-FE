@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -6,12 +6,58 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 import { colors, usedFont } from "../../../assets/colors";
 import { BlankCamera } from "../../../assets/img";
 import { SimpleHeader } from "../../../component";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {BASE_URL, URL} from '../../../service'
+
 
 const AddEtalase = ({navigation}) => {
+  const [token, setToken] = useState()
+  const [name, setName] = useState()
+
+const getToken = async () => {
+  try {
+    const value = await AsyncStorage.getItem("token");
+    if (value !== null) {
+      setToken(value)
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+useEffect(()=>{
+getToken()
+},)
+
+const Create = (token) =>{
+  axios({
+    method: "POST",
+    url: `${BASE_URL}${URL.listEtalase}`,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      'Authorization':`Bearer ${token}`
+    },
+    data: {
+      name:name,
+    },
+  })
+  .then((res)=>{
+    console.log(res.data)
+    if(res.data.status === 200){
+      Alert.alert('Etalase Berhasil dibuat')
+      navigation.navigate('Etalase')
+    }
+  })
+  .catch((err)=>{console.log(err)})
+}
+
+
     return (
       <View style={s.body}>
         <SimpleHeader
@@ -39,10 +85,10 @@ const AddEtalase = ({navigation}) => {
         <View>
           <Text style={s.titleText}>Isi Detail Etalase</Text>
           <Text style={s.inputTitle}>Masukkan Nama Etalase</Text>
-          <TextInput style={s.inputField} placeholder="Masukkan Nama Etalase" />
+          <TextInput style={s.inputField} placeholder="Masukkan Nama Etalase" onChangeText={(text)=>setName(text)}/>
         </View>
         <TouchableOpacity style={s.btnSimpan}
-        onPress={()=>navigation.navigate('Etalase')}
+        onPress={()=>{Create(token)}}
         >
           <Text style={s.btnSimpanText}>Simpan</Text>
         </TouchableOpacity>

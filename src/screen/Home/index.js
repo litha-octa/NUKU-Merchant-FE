@@ -1,4 +1,4 @@
-import React from "react"; 
+import React,{useState, useEffect} from "react"; 
 import {View, Text,Image,TouchableOpacity, StyleSheet, SafeAreaView, ScrollView, StatusBar} from 'react-native'
 import {SaldoInfo, HeaderHome, CardMenu, Insight, AssistantModal} from '../../component'
 import { colors, usedFont } from "../../assets/colors";
@@ -10,21 +10,80 @@ import {
   IconStatistik,
   IconStatusPenjualan,
 } from "../../assets/img";
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { BASE_URL, URL } from "../../service";
 
 const Home =({navigation})=>{
-const merchant = {
-  name: "Toko Sembako Jaya",
-  img :'https://tse2.mm.bing.net/th?id=OIP.BHDBlhTGI2-TaHhW4enWoAHaFE&pid=Api&P=0',
-  rate : '4.5',
-  saldo : 'Rp. 4.000'
-};
+ const [merchant, setMerchant]=useState()
+ const [balance, setBalance] = useState()
+
+ const getToken = async () =>{
+  try {
+    const value = await AsyncStorage.getItem("token");
+    if (value !== null) {
+      console.log(value);
+      dataToko(value)
+      getBalance(value)
+    }
+  } catch (e) {
+    console.log(e);
+  }
+ }
+
+ const dataToko = (token) =>{
+  axios.get(`${BASE_URL}${URL.getProfile}`,{
+    headers:{
+      'Authorization': `Bearer ${token}`
+    }
+  },)
+  .then((res)=>{
+    console.log(res.data.data.merchant)
+    if (res.data.data.merchant === null){
+      navigation.navigate('CreateMerchant')
+    }else{
+      setMerchant(res.data.data.merchant)
+    }
+  })
+  .catch((err)=>{
+    console.log(err)
+  })
+ }
+
+ const getBalance =(token)=>{
+  axios.get(`${BASE_URL}${URL.balance}`,{
+    headers:{
+      'Authorization':`Bearer ${token}`
+    }
+  })
+  .then((res)=>{
+    console.log(res.data.data)
+    setBalance(res.data.data.balance_total_label)
+  })
+  .catch((err)=>{console.log(err)})
+ }
+
+
+
+ useEffect(()=>{
+getToken()
+ },[])
+
+
+// const merchant = {
+//   name: "Toko Sembako Jaya",
+//   img :'https://tse2.mm.bing.net/th?id=OIP.BHDBlhTGI2-TaHhW4enWoAHaFE&pid=Api&P=0',
+//   rate : '4.5',
+//   saldo : 'Rp. 4.000'
+// };
     return (
       <SafeAreaView>
         <StatusBar backgroundColor={colors.white} barStyle={"dark-content"} />
         <HeaderHome
           name={merchant?.name}
-          img={{ uri: merchant?.img }}
-          rate={merchant?.rate}
+          desc={merchant?.about}
+          img={{ uri: `${BASE_URL}${URL.file}${merchant?.logo_thumb_link}` }}
+          rate={'4.7'}
           onNotif={() => {
             console.log("Notif Clicked !");
           }}
@@ -32,7 +91,7 @@ const merchant = {
         <View>
           <ScrollView>
             <View style={s.body}>
-              <SaldoInfo saldo={merchant?.saldo} />
+              <SaldoInfo saldo={balance} />
               <AssistantModal title={"Dashboard Kamu"} />
               <View style={s.cardContainer}>
                 <CardMenu
@@ -49,8 +108,16 @@ const merchant = {
                   img={IconStatusPenjualan}
                   menuName="Status Penjualan"
                 />
-                <CardMenu img={IconStatistik} menuName="Statistik Toko" onPress={()=>navigation.navigate('Statistik')}/>
-                <CardMenu img={IconIklan} menuName="Iklan & Promosi" onPress={()=>navigation.navigate('Iklan')} />
+                <CardMenu
+                  img={IconStatistik}
+                  menuName="Statistik Toko"
+                  onPress={() => navigation.navigate("Statistik")}
+                />
+                <CardMenu
+                  img={IconIklan}
+                  menuName="Iklan & Promosi"
+                  onPress={() => navigation.navigate("Iklan")}
+                />
                 <CardMenu img={IconCallCenter} menuName="Call Center" />
               </View>
               <AssistantModal title={"Insight Toko"} />
